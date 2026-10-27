@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShieldGuard Pest Control | SAPCA Licensed Exterminators South Africa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            900: '#1E293B',
+                        },
+                        hazard: {
+                            DEFAULT: '#FACC15',
+                            dark: '#EAB308',
+                            light: '#FEF08A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom scroll margin so anchor jumps center the section nicely in view */
+        section {
+            scroll-margin-top: 120px;
+        }
+        .hazard-stripe {
+            background: repeating-linear-gradient(
+                -45deg,
+                #FACC15,
+                #FACC15 15px,
+                #1E293B 15px,
+                #1E293B 30px
+            );
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-slate-900 font-sans antialiased selection:bg-hazard selection:text-slate-900">
+
+    <!-- Top Emergency Hotline & SA Banner -->
+    <div id="top-banner" class="bg-slate-950 text-white text-xs sm:text-sm py-2 px-4 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-hazard text-slate-950 animate-pulse">
+                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> SA EMERGENCY DISPATCH
+                </span>
+                <a href="tel:0800737872" class="font-bold hover:text-hazard transition-colors flex items-center gap-1">
+                    <i class="fa-solid fa-phone text-hazard"></i> <span>0800 737 872 (0800 PEST SA)</span>
+                </a>
+            </div>
+            
+            <div class="flex items-center gap-4 text-xs">
+                <div class="flex items-center gap-1 text-gray-300">
+                    <i class="fa-solid fa-location-dot text-hazard"></i>
+                    <span>Nationwide Coverage: <strong class="text-white">South Africa (SAPCA Reg.)</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Sticky Navigation Bar -->
+    <header class="sticky top-[37px] sm:top-[41px] z-40 bg-slate-900/95 backdrop-blur-md text-white shadow-lg border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 bg-hazard rounded-xl flex items-center justify-center text-slate-950 shadow-md group-hover:scale-105 transition">
+                    <i class="fa-solid fa-shield-halved text-2xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-extrabold tracking-tight text-white block leading-none">SHIELD<span class="text-hazard">GUARD</span></span>
+                    <span class="text-[10px] tracking-widest uppercase text-gray-400 font-semibold">South Africa Pest Control</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-semibold">
+                <a href="#pest-id" class="nav-link hover:text-hazard transition">Pest Library</a>
+                <a href="#quote-estimator" class="nav-link hover:text-hazard transition">Instant Quote</a>
+                <a href="#pricing" class="nav-link hover:text-hazard transition">Pricing Plans</a>
+                <a href="#coverage" class="nav-link hover:text-hazard transition">Service Area (Postal Code)</a>
+                <a href="#reviews" class="nav-link hover:text-hazard transition">Reviews</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="#quote-estimator" class="bg-hazard hover:bg-hazard-dark text-slate-950 font-bold px-5 py-2.5 rounded-lg shadow-lg hover:shadow-hazard/20 transition transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i> Book Inspection
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-white text-2xl focus:outline-none p-1">
+                <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#pest-id" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium hover:text-hazard border-b border-slate-800/60">Pest Library</a>
+            <a href="#quote-estimator" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium hover:text-hazard border-b border-slate-800/60">Instant Quote</a>
+            <a href="#pricing" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium hover:text-hazard border-b border-slate-800/60">Pricing Plans</a>
+            <a href="#coverage" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium hover:text-hazard border-b border-slate-800/60">Service Area (Postal Code)</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium hover:text-hazard border-b border-slate-800/60">Reviews</a>
+            <div class="pt-2">
+                <a href="#quote-estimator" onclick="toggleMobileMenu()" class="w-full block text-center bg-hazard text-slate-950 font-bold py-3 rounded-lg shadow">
+                    Book Same-Day Inspection
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative bg-slate-900 text-white overflow-hidden py-20 lg:py-28">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#FACC15_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-hazard/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <!-- Trust Badge -->
+                    <div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-4 py-1.5 text-xs sm:text-sm font-semibold text-hazard shadow-sm">
+                        <i class="fa-solid fa-award text-base"></i>
+                        <span>SAPCA Licensed, Bonded &amp; Department of Agriculture Compliant</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Professional Pest Control Across <span class="text-hazard underline decoration-hazard/40 underline-offset-8">South Africa</span>.
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-300 font-normal max-w-2xl">
+                        Protect your home and business with certified, eco-friendly extermination. Rapid response teams stationed across Gauteng, Western Cape, KwaZulu-Natal, and nationwide.
+                    </p>
+
+                    <!-- Feature Highlights -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="flex items-center gap-2.5 text-sm text-gray-200">
+                            <i class="fa-solid fa-bolt text-hazard text-lg"></i>
+                            <span>Same-Day Dispatch</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-sm text-gray-200">
+                            <i class="fa-solid fa-leaf text-hazard text-lg"></i>
+                            <span>Pet &amp; Child Safe</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-sm text-gray-200">
+                            <i class="fa-solid fa-file-shield text-hazard text-lg"></i>
+                            <span>SAPCA Guaranteed</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#quote-estimator" class="bg-hazard hover:bg-hazard-dark text-slate-950 font-extrabold px-8 py-4 rounded-xl shadow-xl hover:shadow-hazard/25 transition transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-3 text-lg">
+                            <i class="fa-solid fa-calendar-days text-xl"></i> Book Same-Day Inspection
+                        </a>
+                        <a href="#pest-id" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-8 py-4 rounded-xl border border-slate-700 transition text-center flex items-center justify-center gap-2 text-lg">
+                            <i class="fa-solid fa-bug text-hazard"></i> Identify Your Pest
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Quick Booking Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border-t-8 border-hazard">
+                        <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-6">
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded-md">Priority SA Dispatch</span>
+                                <h3 class="text-2xl font-bold text-slate-900 mt-1">Request Service</h3>
+                            </div>
+                            <div class="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center text-slate-900">
+                                <i class="fa-solid fa-truck-fast text-xl text-amber-600"></i>
+                            </div>
+                        </div>
+
+                        <form onsubmit="handleQuickBooking(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Full Name</label>
+                                <input type="text" required placeholder="Pieter van der Merwe" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone Number</label>
+                                    <input type="tel" required placeholder="082 123 4567" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">SA Postal Code</label>
+                                    <input type="text" required placeholder="0157" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Primary Pest Issue</label>
+                                <select class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                                    <option>Termites (Subterranean / Wood Borers)</option>
+                                    <option>Rodents (Roof Rats &amp; Mice)</option>
+                                    <option>Ants (Argentine &amp; Black Ants)</option>
+                                    <option>Mosquitoes &amp; Midges</option>
+                                    <option>Bed Bugs</option>
+                                    <option>General Household Spray</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition shadow-lg flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-bolt text-hazard"></i> Confirm Priority Inspection
+                            </button>
+                            <p class="text-center text-xs text-gray-500 pt-1">
+                                <i class="fa-solid fa-lock text-green-600"></i> SAPCA certified &amp; confidential.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Pest ID Quick-Checker Section -->
+    <section id="pest-id" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200">Interactive South African Pest Library</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Identify Your Pest &amp; SA Treatment Solution</h2>
+                <p class="text-gray-600 mt-3 text-lg">Click any pest category below for South African extermination protocols, warning signs, and local climate advisories.</p>
+            </div>
+
+            <!-- Pest Selection Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10" id="pest-tabs">
+                <button onclick="selectPest('termites')" id="tab-termites" class="pest-tab px-6 py-3 rounded-xl font-bold text-sm transition bg-slate-900 text-white shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-bug text-hazard"></i> Termites (Subterranean)
+                </button>
+                <button onclick="selectPest('rodents')" id="tab-rodents" class="pest-tab px-6 py-3 rounded-xl font-bold text-sm transition bg-gray-100 hover:bg-gray-200 text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-cat text-hazard"></i> Rodents (Roof Rats &amp; Mice)
+                </button>
+                <button onclick="selectPest('ants')" id="tab-ants" class="pest-tab px-6 py-3 rounded-xl font-bold text-sm transition bg-gray-100 hover:bg-gray-200 text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-spider text-hazard"></i> Ants
+                </button>
+                <button onclick="selectPest('mosquitoes')" id="tab-mosquitoes" class="pest-tab px-6 py-3 rounded-xl font-bold text-sm transition bg-gray-100 hover:bg-gray-200 text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-mosquito text-hazard"></i> Mosquitoes
+                </button>
+                <button onclick="selectPest('bedbugs')" id="tab-bedbugs" class="pest-tab px-6 py-3 rounded-xl font-bold text-sm transition bg-gray-100 hover:bg-gray-200 text-slate-700 flex items-center gap-2">
+                    <i class="fa-solid fa-bed text-hazard"></i> Bed Bugs
+                </button>
+            </div>
+
+            <!-- Pest Content Display Card -->
+            <div id="pest-display-card" class="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-800">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="inline-block bg-hazard text-slate-950 font-bold text-xs px-3 py-1 rounded uppercase tracking-wider" id="pest-badge">Structural Threat</div>
+                        <h3 class="text-3xl font-extrabold text-white" id="pest-title">Subterranean Termites</h3>
+                        <p class="text-gray-300 text-base leading-relaxed" id="pest-description">
+                            Extremely common across South African foundations, subterranean termites build mud tunnels and consume roof timber and flooring from within.
+                        </p>
+                        <div class="pt-2">
+                            <a href="#quote-estimator" class="inline-flex items-center gap-2 bg-hazard hover:bg-hazard-dark text-slate-950 font-bold px-6 py-3 rounded-xl transition shadow">
+                                <i class="fa-solid fa-arrow-right"></i> Schedule Termite Inspection
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-slate-800/80 rounded-2xl p-6 border border-slate-700/60 space-y-4">
+                        <h4 class="text-lg font-bold text-hazard flex items-center gap-2">
+                            <i class="fa-solid fa-clipboard-list"></i> Key Indicators &amp; SA Treatment Plan
+                        </h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1">Warning Signs</span>
+                                <p class="text-sm text-gray-200" id="pest-signs">Mud tubes across foundation walls, hollow skirting boards, and discarded wings after summer rain.</p>
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1">Professional Solution</span>
+                                <p class="text-sm text-gray-200" id="pest-solution">SAPCA-approved chemical soil barrier injection and drill-and-inject timber treatment with warranty.</p>
+                            </div>
+                        </div>
+                        <div class="bg-amber-950/30 border border-amber-600/30 p-4 rounded-xl flex items-start gap-3">
+                            <i class="fa-solid fa-circle-info text-hazard text-lg mt-0.5"></i>
+                            <div>
+                                <span class="text-xs font-bold text-hazard block uppercase">South African Climate Advisory</span>
+                                <p class="text-xs text-gray-300 mt-0.5" id="pest-advisory">High activity following summer rainfall in Gauteng, KZN, and Coastal regions. Pre-construction and annual checks vital.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instant Online Quote Estimator Widget -->
+    <section id="quote-estimator" class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl p-6 sm:p-12 border border-gray-200">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200">Instant SA Calculator</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-3">Calculate Your Estimate (ZAR)</h2>
+                    <p class="text-gray-600 mt-2 text-sm">Select your property details below for transparent upfront pricing in South African Rand.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Step 1: Property Size -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-800 mb-3 flex items-center justify-between">
+                            <span>1. Select Property Size</span>
+                            <span id="prop-size-label" class="text-amber-600 font-extrabold text-base">Standard Home / Townhouse (Up to 200m²)</span>
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <button type="button" onclick="setPropSize(1, 'Standard Home / Townhouse (Up to 200m²)', 1450)" class="calc-size-btn p-4 rounded-2xl border-2 border-hazard bg-amber-50/50 text-slate-900 font-semibold text-center transition hover:border-hazard">
+                                <div class="text-lg font-bold">Townhouse / Small</div>
+                                <div class="text-xs text-gray-500 mt-1">Up to 200m²</div>
+                            </button>
+                            <button type="button" onclick="setPropSize(2, 'Medium / Large House (200m² - 400m²)', 2250)" class="calc-size-btn p-4 rounded-2xl border-2 border-gray-200 bg-white text-slate-700 font-semibold text-center transition hover:border-hazard">
+                                <div class="text-lg font-bold">Medium / Large House</div>
+                                <div class="text-xs text-gray-500 mt-1">200m² - 400m²</div>
+                            </button>
+                            <button type="button" onclick="setPropSize(3, 'Large Estate / Commercial (400m²+)', 3600)" class="calc-size-btn p-4 rounded-2xl border-2 border-gray-200 bg-white text-slate-700 font-semibold text-center transition hover:border-hazard">
+                                <div class="text-lg font-bold">Estate / Commercial</div>
+                                <div class="text-xs text-gray-500 mt-1">400m²+ property</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Pest Target & Severity -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-slate-800 mb-2">2. Pest Target</label>
+                            <select id="calc-pest-type" onchange="calculateQuote()" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm font-medium">
+                                <option value="general">General Crawling Insects (Ants, Spiders, Cockroaches) - R0</option>
+                                <option value="rodents">Rodents (Roof Rats &amp; Mice) - +R350</option>
+                                <option value="mosquitoes">Mosquitoes &amp; Midges Outdoor Spray - +R550</option>
+                                <option value="termites">Termite Colony Treatment - +R1,500</option>
+                                <option value="bedbugs">Bed Bugs Heat &amp; Steam Treatment - +R1,800</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-slate-800 mb-2">3. Infestation Severity</label>
+                            <select id="calc-severity" onchange="calculateQuote()" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm font-medium">
+                                <option value="preventative">Preventative / Light Activity (Base Price)</option>
+                                <option value="moderate">Moderate Active Infestation (+25%)</option>
+                                <option value="severe">Severe / Heavy Infestation (+50%)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Price Output Box -->
+                    <div class="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-hazard">Estimated Investment</span>
+                            <div class="text-4xl sm:text-5xl font-black mt-1 flex items-baseline gap-2">
+                                <span>R</span><span id="quote-price-val">1450</span>
+                                <span class="text-xs font-normal text-gray-400">/ initial visit (VAT incl.)</span>
+                            </div>
+                            <p class="text-xs text-gray-300 mt-1">SAPCA certified inspection &amp; initial treatment warranty included.</p>
+                        </div>
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto bg-hazard hover:bg-hazard-dark text-slate-950 font-extrabold px-8 py-4 rounded-xl shadow-lg transition text-center text-lg flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check-circle"></i> Lock In This Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparent Pricing Grid -->
+    <section id="pricing" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200">Transparent SA Pricing</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">One-Time Extermination vs. Quarterly Protection</h2>
+                <p class="text-gray-600 mt-3 text-lg">Choose a single professional knockout or secure your home year-round with our Quarterly Shield Plan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Plan 1: One-Time Extermination -->
+                <div class="bg-gray-50 rounded-3xl p-8 sm:p-10 border border-gray-200 flex flex-col justify-between transition hover:shadow-xl relative">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-600 bg-gray-200 px-3 py-1 rounded-full">Single Knockout</span>
+                            <i class="fa-solid fa-bolt text-2xl text-slate-400"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900">One-Time Extermination</h3>
+                        <p class="text-gray-600 text-sm mt-2">Ideal for acute pest outbreaks requiring immediate emergency intervention.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-4xl font-black text-slate-900">R1,750</span>
+                            <span class="text-xs text-gray-500"> / flat rate</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-700 border-t border-gray-200 pt-6">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-green-600 font-bold"></i> Comprehensive SAPCA property inspection
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-green-600 font-bold"></i> Targeted interior &amp; exterior treatment
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-green-600 font-bold"></i> Eco-safe Department of Ag. approved formulas
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-green-600 font-bold"></i> 30-Day Re-service Guarantee
+                            </li>
+                            <li class="flex items-center gap-3 text-gray-400">
+                                <i class="fa-solid fa-xmark text-red-400 font-bold"></i> Free follow-up quarterly visits
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <button onclick="selectPlan('One-Time Extermination')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition shadow">
+                            Select One-Time Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Plan 2: Quarterly Protection Plan (Featured) -->
+                <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 border-2 border-hazard shadow-2xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-hazard text-slate-950 font-black text-[10px] tracking-widest uppercase px-4 py-1.5 rounded-bl-2xl">
+                        Most Popular &amp; Best Value
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-950 bg-hazard px-3 py-1 rounded-full">Year-Round Defense</span>
+                            <i class="fa-solid fa-shield-halved text-2xl text-hazard"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Quarterly Protection Plan</h3>
+                        <p class="text-gray-300 text-sm mt-2">Continuous 365-day barrier protection against seasonal pest migrations.</p>
+                        
+                        <div class="my-6">
+                            <span class="text-4xl font-black text-white">R450</span>
+                            <span class="text-xs text-gray-400"> / month (billed quarterly)</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-sm text-gray-200 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-hazard font-bold"></i> Everything in One-Time Extermination
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-hazard font-bold"></i> 4 Scheduled seasonal treatments per year
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-hazard font-bold"></i> <strong>Unlimited FREE re-services</strong> between visits
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-hazard font-bold"></i> Exterior web, cobweb &amp; wasp nest removal
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-check text-hazard font-bold"></i> Priority VIP dispatch emergency status
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <button onclick="selectPlan('Quarterly Protection Plan')" class="w-full bg-hazard hover:bg-hazard-dark text-slate-950 font-extrabold py-3.5 rounded-xl transition shadow-lg">
+                            Get Quarterly Shield
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Service Area Postal Code Checker Section -->
+    <section id="coverage" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-slate-950 bg-hazard px-3 py-1.5 rounded-full">SA Service Coverage Verification</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Check Your SA Postal Code</h2>
+            <p class="text-gray-300 mt-3 text-base max-w-xl mx-auto">Enter your South African postal code below (e.g., Centurion 0157, Pretoria 0002, Johannesburg 2001, Cape Town 8001, Durban 4001) to verify technician availability.</p>
+
+            <div class="mt-8 max-w-xl mx-auto bg-slate-800 p-3 sm:p-4 rounded-2xl border border-slate-700 shadow-xl flex flex-col sm:flex-row gap-3">
+                <input type="text" id="zip-input" placeholder="Enter SA Postal Code (e.g. 0157)" class="flex-1 px-4 py-3 bg-slate-900 text-white border border-slate-700 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm font-medium">
+                <button onclick="checkZipCode()" class="bg-hazard hover:bg-hazard-dark text-slate-950 font-extrabold px-8 py-3.5 rounded-xl transition shadow flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass"></i> Check Area
+                </button>
+            </div>
+
+            <!-- Zip Check Result Box -->
+            <div id="zip-result-box" class="hidden mt-6 max-w-xl mx-auto p-4 rounded-xl text-left border">
+                <!-- Dynamically injected feedback -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials Section -->
+    <section id="reviews" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-600 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200">Verified South African Reviews</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Trusted by Homeowners Across SA</h2>
+                <p class="text-gray-600 mt-3 text-lg">Read what local homeowners say about our fast and effective pest elimination.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 gap-1 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-sm leading-relaxed italic">
+                            "We noticed termite mud tubes in our Centurion garage. ShieldGuard dispatched a technician within 2 hours. Professional, SAPCA certified, and spotless."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 text-hazard font-bold flex items-center justify-center text-sm">
+                            JV
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Johan Venter</h4>
+                            <span class="text-xs text-gray-500">Centurion Homeowner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 gap-1 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-sm leading-relaxed italic">
+                            "The quarterly protection plan is brilliant. Living in Durban with high humidity means mosquitoes and ants used to be a nightmare. Not anymore!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 text-hazard font-bold flex items-center justify-center text-sm">
+                            PN
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Priya Naidoo</h4>
+                            <span class="text-xs text-gray-500">Durban Homeowner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-500 gap-1 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-sm leading-relaxed italic">
+                            "Fast and efficient service in Cape Town. They sorted out our roof rat problem immediately and provided the required compliance certificate for our property sale."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-6 mt-6 border-t border-gray-100">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 text-hazard font-bold flex items-center justify-center text-sm">
+                            BS
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Brad Strydom</h4>
+                            <span class="text-xs text-gray-500">Cape Town Property Owner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-white pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-hazard rounded-xl flex items-center justify-center text-slate-950">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <span class="text-xl font-extrabold tracking-tight">SHIELD<span class="text-hazard">GUARD</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm">
+                        South Africa's premier SAPCA licensed and Department of Agriculture compliant pest control specialists.
+                    </p>
+                    <div class="flex items-center gap-3 text-hazard">
+                        <i class="fa-solid fa-phone"></i>
+                        <span class="text-white font-bold">0800 737 872 (0800 PEST SA)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-hazard mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#pest-id" class="hover:text-white transition">Pest Library</a></li>
+                        <li><a href="#quote-estimator" class="hover:text-white transition">Instant Quote Calculator</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition">Pricing Plans</a></li>
+                        <li><a href="#coverage" class="hover:text-white transition">Postal Code Check</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-hazard mb-4">SA Services</h4>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li><a href="#pest-id" class="hover:text-white transition">Termite Eradication</a></li>
+                        <li><a href="#pest-id" class="hover:text-white transition">Roof Rat Proofing</a></li>
+                        <li><a href="#pest-id" class="hover:text-white transition">Mosquito Barrier Spray</a></li>
+                        <li><a href="#pest-id" class="hover:text-white transition">Bed Bug Heat Treatment</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-hazard mb-4">Compliance</h4>
+                    <div class="space-y-2 text-xs text-gray-400">
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-hazard"></i> SAPCA Registered Member</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-hazard"></i> Dept. of Agriculture Approved</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-hazard"></i> Licensed &amp; Bonded #ZAPEST-882</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 ShieldGuard Pest Control South Africa (Pty) Ltd. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-gray-400 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400 transition">SAPCA Terms</a>
+                    <a href="#" class="hover:text-gray-400 transition">Compliance Info</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Confirmation Modal -->
+    <div id="booking-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white text-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border-t-8 border-hazard">
+            <button onclick="openBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-slate-900 text-xl font-bold">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-hazard/20 text-slate-950 rounded-2xl mx-auto flex items-center justify-center text-3xl mb-3">
+                    <i class="fa-solid fa-shield-cat text-amber-600"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-slate-900">Finalize South Africa Inspection</h3>
+                <p class="text-xs text-gray-600 mt-1">Lock in your calculated Rand estimate and reserve same-day technician dispatch.</p>
+            </div>
+
+            <form onsubmit="handleBookingSubmission(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Full Name</label>
+                    <input type="text" required placeholder="Sipho Khumalo" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Phone Number</label>
+                        <input type="tel" required placeholder="082 000 0000" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">SA Postal Code</label>
+                        <input type="text" required placeholder="0157" class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Preferred Date &amp; Time</label>
+                    <input type="date" required class="w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-xl focus:ring-2 focus:ring-hazard focus:outline-none text-sm">
+                </div>
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex justify-between items-center text-sm font-semibold">
+                    <span>Locked Estimate Total (ZAR):</span>
+                    <span id="modal-final-price" class="text-amber-600 font-black text-lg">R1,450</span>
+                </div>
+                <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition shadow-lg">
+                    Confirm &amp; Dispatch SA Technician
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- General Message Notification Box (No alert() used!) -->
+    <div id="toast-msg" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl border border-slate-700 hidden transform translate-y-10 opacity-0 transition-all duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-hazard text-xl"></i>
+        <div>
+            <h5 class="font-bold text-sm" id="toast-title">Success</h5>
+            <p class="text-xs text-gray-300" id="toast-desc">Action completed successfully.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Pest Data Dictionary (South African Focus)
+        const pestData = {
+            termites: {
+                badge: "Structural Threat",
+                title: "Subterranean Termites",
+                desc: "Extremely common across South African foundations, subterranean termites build mud tunnels and consume roof timber and flooring from within.",
+                signs: "Mud tubes across foundation walls, hollow skirting boards, and discarded wings after summer rain.",
+                solution: "SAPCA-approved chemical soil barrier injection and drill-and-inject timber treatment with warranty.",
+                advisory: "High activity following summer rainfall in Gauteng, KZN, and Coastal regions. Pre-construction and annual checks vital."
+            },
+            rodents: {
+                badge: "Health Hazard",
+                title: "Rodents (Roof Rats & Mice)",
+                desc: "Roof rats are notorious in South African ceiling spaces for chewing electrical wiring and insulation, posing fire hazards.",
+                signs: "Scratching noises in ceilings at night, droppings in roof cavities, and chewed wiring.",
+                solution: "Tamper-resistant bait stations in roof voids, snap traps, and complete roof-line exclusion sealing.",
+                advisory: "Increased migration into roof spaces during cooler autumn and winter months across SA."
+            },
+            ants: {
+                badge: "Nuisance & Property Damage",
+                title: "Ants (Argentine & Black Ants)",
+                desc: "Invasive Argentine ants and black household ants form massive multi-queen colonies that invade kitchens and food preparation areas.",
+                signs: "Endless trailing lines near pantry floors, sugar bowls, and window sills.",
+                solution: "Non-repellent slow-acting gel baits and SAPCA-certified perimeter barrier sprays.",
+                advisory: "Thrives year-round in warm South African climates, spiking after spring rains."
+            },
+            mosquitoes: {
+                badge: "Disease Vector",
+                title: "Mosquitoes & Midges",
+                desc: "Present a risk for seasonal vector-borne issues and restless nights across warm South African coastal and inland regions.",
+                signs: "Swarming near stagnant water features, pool pumps, and garden foliage.",
+                solution: "Bi-weekly residual barrier fogging, larvicide treatments for water bodies, and eco-safe garden sprays.",
+                advisory: "Peak season during wet summer months in KZN, Mpumalanga, and Gauteng."
+            },
+            bedbugs: {
+                badge: "Severe Nuisance",
+                title: "Bed Bugs",
+                desc: "Resilient blood-feeding parasites infesting mattresses, headboards, and couches, causing itchy welts and sleepless nights.",
+                signs: "Blood specks on linen, dark fecal dots on mattress seams, and unexplained bites.",
+                solution: "High-temperature steam remediation and specialized residual insecticide application.",
+                advisory: "Spreading rapidly in guest houses, hotels, and residential homes across major SA cities."
+            }
+        };
+
+        function selectPest(key) {
+            document.querySelectorAll('.pest-tab').forEach(btn => {
+                btn.className = "pest-tab px-6 py-3 rounded-xl font-bold text-sm transition bg-gray-100 hover:bg-gray-200 text-slate-700 flex items-center gap-2";
+            });
+            const activeTab = document.getElementById('tab-' + key);
+            activeTab.className = "pest-tab px-6 py-3 rounded-xl font-bold text-sm transition bg-slate-900 text-white shadow-md flex items-center gap-2";
+
+            const p = pestData[key];
+            document.getElementById('pest-badge').innerText = p.badge;
+            document.getElementById('pest-title').innerText = p.title;
+            document.getElementById('pest-description').innerText = p.desc;
+            document.getElementById('pest-signs').innerText = p.signs;
+            document.getElementById('pest-solution').innerText = p.solution;
+            document.getElementById('pest-advisory').innerText = p.advisory;
+        }
+
+        // Quote Calculator State
+        let selectedSizePrice = 1450;
+
+        function setPropSize(tier, label, baseVal) {
+            document.getElementById('prop-size-label').innerText = label;
+            document.querySelectorAll('.calc-size-btn').forEach(btn => {
+                btn.className = "calc-size-btn p-4 rounded-2xl border-2 border-gray-200 bg-white text-slate-700 font-semibold text-center transition hover:border-hazard";
+            });
+            event.currentTarget.className = "calc-size-btn p-4 rounded-2xl border-2 border-hazard bg-amber-50/50 text-slate-900 font-semibold text-center transition hover:border-hazard";
+            
+            selectedSizePrice = baseVal;
+            calculateQuote();
+        }
+
+        function calculateQuote() {
+            const pestType = document.getElementById('calc-pest-type').value;
+            const severity = document.getElementById('calc-severity').value;
+
+            let pestAddon = 0;
+            if (pestType === 'rodents') pestAddon = 350;
+            if (pestType === 'mosquitoes') pestAddon = 550;
+            if (pestType === 'termites') pestAddon = 1500;
+            if (pestType === 'bedbugs') pestAddon = 1800;
+
+            let total = selectedSizePrice + pestAddon;
+
+            if (severity === 'moderate') total *= 1.25;
+            if (severity === 'severe') total *= 1.50;
+
+            const finalVal = Math.round(total);
+            document.getElementById('quote-price-val').innerText = finalVal.toLocaleString();
+            document.getElementById('modal-final-price').innerText = 'R' + finalVal.toLocaleString();
+        }
+
+        function openBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function handleQuickBooking(e) {
+            e.preventDefault();
+            showToast("Priority SA Dispatch Requested", "Our local technician team will call you within 15 minutes.");
+            e.target.reset();
+        }
+
+        function handleBookingSubmission(e) {
+            e.preventDefault();
+            openBookingModal();
+            showToast("Booking Confirmed!", "Your South African inspection technician has been scheduled.");
+            e.target.reset();
+        }
+
+        function selectPlan(planName) {
+            showToast("Plan Selected", "Proceeding to checkout for " + planName);
+            openBookingModal();
+        }
+
+        // SA Postal Code Checker
+        function checkZipCode() {
+            const postal = document.getElementById('zip-input').value.trim();
+            const resBox = document.getElementById('zip-result-box');
+            resBox.classList.remove('hidden');
+
+            if (!postal) {
+                resBox.className = "mt-6 max-w-xl mx-auto p-4 rounded-xl text-left border bg-red-950/40 border-red-600/40 text-red-200";
+                resBox.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-hazard"></i> Please enter a valid South African postal code to check coverage.`;
+                return;
+            }
+
+            resBox.className = "mt-6 max-w-xl mx-auto p-4 rounded-xl text-left border bg-green-950/40 border-green-600/40 text-green-200";
+            resBox.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-circle-check text-hazard text-2xl"></i>
+                    <div>
+                        <strong class="text-white block text-base">SAPCA Coverage Active in Postal Code ${postal}!</strong>
+                        <p class="text-xs text-gray-300 mt-0.5">ShieldGuard mobile technician units are currently stationed in your area. Same-day dispatch is available.</p>
+                    </div>
+                </div>
+            `;
+            showToast("Coverage Verified", "SAPCA technicians available in " + postal);
+        }
+
+        // Toast Message Notification System
+        function showToast(title, desc) {
+            const toast = document.getElementById('toast-msg');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-desc').innerText = desc;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-10', 'opacity-0');
+            }, 50);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
